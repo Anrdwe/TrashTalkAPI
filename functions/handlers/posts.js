@@ -48,7 +48,8 @@ exports.postOnePost = (req, res) => {
         .collection('posts')
         .add(newPost)
         .then(doc => {
-            res.json({ message: `document ${doc.id} created successfully`});
+            res.json({ message: `document created successfully`,
+                    postId: `${doc.id}`});
         })
         .catch(err => {
             res.status(500).json({ error: 'something went wrong'});
